@@ -1,0 +1,10 @@
+npm init
+
+npm install express mysql2 ejs body-parser
+
+npm install -g nodemon
+
+ npm run dev
+
+ or 
+ node server.js

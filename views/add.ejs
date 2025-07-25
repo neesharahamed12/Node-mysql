@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add Employee</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Add Employee</h1>
+    <form method="POST" action="/add">
+      <input type="text" name="name" placeholder="Full Name" required />
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="text" name="department" placeholder="Department" required />
+      <input type="text" name="designation" placeholder="Designation" required />
+      <input type="tel" name="phone" placeholder="Phone Number" required />
+      <input type="date" name="join_date" required />
+      <button type="submit">Save</button>
+    </form>
+    <a href="/">← Back to List</a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Employee List</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Employee Directory</h1>
+    <a href="/add">+ Add New Employee</a>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Dept</th>
+          <th>Designation</th>
+          <th>Phone</th>
+          <th>Join Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% employees.forEach(emp => { %>
+          <tr>
+            <td><%= emp.name %></td>
+            <td><%= emp.email %></td>
+            <td><%= emp.department %></td>
+            <td><%= emp.designation %></td>
+            <td><%= emp.phone %></td>
+            <td><%= emp.join_date.toISOString().slice(0,10) %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
