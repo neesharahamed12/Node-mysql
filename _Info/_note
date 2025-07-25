@@ -8,3 +8,10 @@ npm install -g nodemon
 
  or 
  node server.js
+
+npm install dotenv
+
+docker-compose up --build
+docker compose down -v        # fresh start
+docker compose build
+docker compose up

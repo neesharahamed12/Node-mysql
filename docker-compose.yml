@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:5.7
+    container_name: mysql
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'   # ← quote so YAML treats it as a string
+      MYSQL_DATABASE: testdb
+    ports:
+      - "3307:3306"                       # host↔container
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql  # 👈 mounts your init.sql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  app:
+    build: .
+    container_name: nodeapp
+    depends_on:
+      db:                                # wait until the db health-check passes
+        condition: service_healthy
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+    environment:
+      # use the **service name** inside the Docker network
+      - DB_HOST=db
+      - DB_USER=root
+      - DB_PASSWORD=
+      - DB_NAME=testdb
+      - DB_PORT=3306
+      - PORT=3000
+
+volumes:
+  db_data:

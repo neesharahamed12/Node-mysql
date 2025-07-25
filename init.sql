@@ -1,0 +1,11 @@
+
+CREATE TABLE employees (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100),
+  email VARCHAR(100),
+  department VARCHAR(100),
+  designation VARCHAR(100),
+  phone VARCHAR(15),
+  join_date DATE
+);
+

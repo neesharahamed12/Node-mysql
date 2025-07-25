@@ -1,33 +1,50 @@
-# Employee Directory App
+# 🧾 Employee Directory App
 
-A mini Node.js + MySQL + EJS project for managing employee records.
+A clean and minimal **Employee Management System** built using **Node.js**, **Express**, **MySQL**, and **EJS**, with Docker support.
 
-## 🚀 Features
+---
 
-- Add new employees
-- View employee list in a table
-- Uses EJS for server-side rendering
-- MySQL as the database
-- Clean UI with basic styling
-- Node.js Express server
+## ✨ Features
 
-## 📂 Tech Stack
+- Add new employees through a web form  
+- View a list of employees  
+- Server-side rendering with EJS  
+- MySQL database integration  
+- Clean and responsive UI  
+- Dockerized for easy setup
 
-- Node.js
-- Express.js
-- EJS (templating)
-- MySQL2
-- Body-Parser
-- HTML/CSS
+---
 
-## 📦 Installation
+## 📦 Tech Stack
 
-```bash
-git clone https://github.com/your-username/employee-directory.git
-cd employee-directory
-npm install
-```
+- **Node.js** + **Express.js**  
+- **MySQL2** (MySQL client for Node)  
+- **EJS** (template engine)  
+- **Body-Parser**, **Dotenv**  
+- **Docker** + **Docker Compose**
 
-## 🖼️ Project Screenshot
+---
+
+## 📸 Screenshot
 
 ![Website Screenshot](public/image/image.png)
+
+---
+
+## 🛠️ Installation (Without Docker)
+
+```bash
+npm init                          # Initialize Node.js project
+npm install express mysql2 ejs body-parser dotenv  # Install required packages
+npm install -g nodemon           # Install nodemon globally for dev use
+npm run dev                      # Start development server with live reload
+npm start                        # Start production server (node server.js)
+
+
+```
+```bash
+docker-compose up --build        # Build Docker images and start containers
+docker-compose down -v           # Stop and remove containers, networks, and volumes
+docker-compose build             # Rebuild Docker images
+docker-compose up                # Start containers (after build)
+```
