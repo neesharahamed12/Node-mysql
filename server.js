@@ -1,39 +1,3 @@
-// const express = require('express');
-// const bodyParser = require('body-parser');
-// const db = require('./db');
-
-// const app = express();
-// const PORT = 3000;
-
-// app.set('view engine', 'ejs');
-// app.use(express.static('public'));
-// app.use(bodyParser.urlencoded({ extended: false }));
-
-// // Home page - List students
-// app.get('/', (req, res) => {
-//   db.query('SELECT * FROM students', (err, results) => {
-//     if (err) throw err;
-//     res.render('index', { students: results });
-//   });
-// });
-
-// // Add student form
-// app.get('/add', (req, res) => {
-//   res.render('add');
-// });
-
-// // Handle form submit
-// app.post('/add', (req, res) => {
-//   const { name, email } = req.body;
-//   db.query('INSERT INTO students (name, email) VALUES (?, ?)', [name, email], (err) => {
-//     if (err) throw err;
-//     res.redirect('/');
-//   });
-// });
-
-// app.listen(PORT, () => {
-//   console.log(`Server running at http://localhost:${PORT}`);
-// });
 const express = require('express');
 const bodyParser = require('body-parser');
 const db = require('./db');
@@ -43,6 +7,7 @@ const PORT = 3000;
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
+app.use(express.static('public/image/*'));
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // Home page - List all employees

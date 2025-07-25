@@ -26,3 +26,8 @@ A mini Node.js + MySQL + EJS project for managing employee records.
 git clone https://github.com/your-username/employee-directory.git
 cd employee-directory
 npm install
+```
+
+## 🖼️ Project Screenshot
+
+![Website Screenshot](public/image/image.png)
