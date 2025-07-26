@@ -8,10 +8,10 @@ services:
       MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'   # ← quote so YAML treats it as a string
       MYSQL_DATABASE: testdb
     ports:
-      - "3307:3306"                       # host↔container
+      - "3306:3306"                       # host↔container
     volumes:
-      - db_data:/var/lib/mysql
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql  # 👈 mounts your init.sql
+      - /d/docker_volume/mysql-nishar-db:/var/lib/mysql    # 👈 Mount to Windows folder
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql    # 👈 SQL init script
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root"]
       interval: 5s
@@ -20,16 +20,15 @@ services:
 
   app:
     build: .
-    container_name: nodeapp
+    container_name: nodeapp1
     depends_on:
-      db:                                # wait until the db health-check passes
+      db:
         condition: service_healthy
     ports:
       - "3000:3000"
     volumes:
       - .:/app
     environment:
-      # use the **service name** inside the Docker network
       - DB_HOST=db
       - DB_USER=root
       - DB_PASSWORD=
@@ -37,5 +36,6 @@ services:
       - DB_PORT=3306
       - PORT=3000
 
-volumes:
-  db_data:
+# Removed the named volume since it's not used anymore
+# volumes:
+#   db_data:
