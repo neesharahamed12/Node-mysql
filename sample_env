@@ -1,0 +1,5 @@
+DB_HOST=loahost
+DB_USER=root
+DB_PASSWORD=''
+DB_NAME=testdb
+DB_PORT=3306
